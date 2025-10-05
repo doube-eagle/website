@@ -16,6 +16,7 @@
       --cream: #f9fbf9;
       --stone: #d9e2d9;
       --text: #0f172a;
+      --highlight: #cde5ce;
     }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.6; background: var(--cream); color: var(--text); }
@@ -35,6 +36,9 @@
     tr:nth-child(even) { background: #fff; }
     tr:nth-child(odd) { background: var(--cream); }
 
+    .committee-block { background: var(--highlight); border: 1px solid var(--stone); border-radius: 8px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .committee-block h3 { margin-top: 0; color: var(--forest); }
+
     footer { display: flex; justify-content: flex-start; align-items: center; border-top: 1px solid var(--stone); padding: 1.5rem 1rem; color: #475569; font-size: 0.9rem; background: #f1f5f1; }
 
     @media (prefers-color-scheme: dark) {
@@ -42,6 +46,7 @@
       header { background: #1b3b2e; }
       th { background: #20392b; color: #e5e7eb; }
       td { border-color: #2b3d33; }
+      .committee-block { background: #1b2f22; border-color: #2b3d33; }
       footer { background: #16241f; border-color: #2b3d33; color: #9fb3a7; }
     }
   </style>
@@ -49,14 +54,16 @@
 <body>
   <header>
     <div class="portal-container">
-      <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">Management Company Portal</a>
+      <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank"
+      rel="noopener">Management Company Portal</a>
     </div>
   </header>
 
   <main>
     <section id="about">
       <h1>Double Eagle Ranch</h1>
-      <p>For documents and payment, please visit the <a href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">Management Company Portal</a>.</p>
+      <p>For documents and payment, please visit the <a href="https://portal.pamcotx.com/login"
+      target="_blank" rel="noopener">Management Company Portal</a>.</p>
     </section>
 
     <section id="board">
@@ -93,18 +100,54 @@
 
     <section id="committees">
       <h2>Committees</h2>
-      <h3>Architectural Review Committee (ARC)</h3>
-      <p>Reviews exterior changes for consistency with community standards.</p>
-      <p>Submit requests through the <a href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">Management Company Portal</a></p>
-      <p>Contact: <a href="mailto:arc@doubleeagleranch.us">arc@doubleeagleranch.us</a></p>
 
-      <h3>Social Committee</h3>
-      <p>Plans neighborhood gatherings and communications.</p>
-      <p>Contact: <a href="mailto:social@doubleeagleranch.us">social@doubleeagleranch.us</a></p>
+      <div class="committee-block">
+        <h3>Architectural Review Committee (ARC)</h3>
+      <p>Preserve community character through <strong>design review</strong> that ensures quality
+      and <strong>collaboration</strong> that makes the approval process simple and fair for
+      everyone.</p>
+      <p>Submit requests through the <a href="https://portal.pamcotx.com/login" target="_blank"
+      rel="noopener">Management Company Portal</a></p>
+        <p>Contact: <a href="mailto:arc@doubleeagleranch.us">arc@doubleeagleranch.us</a></p>
+        <table>
+          <thead>
+            <tr><th>Members</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(TBD)</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h3>Park & Landscape Committee</h3>
-      <p>Helps coordinate open space upkeep and landscaping projects.</p>
-      <p>Contact: <a href="mailto:parks@doubleeagleranch.us">parks@doubleeagleranch.us</a></p>
+      <div class="committee-block">
+        <h3>Social Committee</h3>
+      <p>Create community engagement through <strong>events</strong> that bring neighbors together
+      and <strong>communication</strong> that keeps residents informed and connected.</p>
+        <p>Contact: <a href="mailto:social@doubleeagleranch.us">social@doubleeagleranch.us</a></p>
+        <table>
+          <thead>
+            <tr><th>Members</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(TBD)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="committee-block">
+        <h3>Park & Landscape Committee</h3>
+      <p>Enhance neighborhood life through <strong>landscaping</strong> that beautifies our shared
+      spaces and <strong>projects</strong> that bring neighbors together outdoors.</p>
+        <p>Contact: <a href="mailto:parks@doubleeagleranch.us">parks@doubleeagleranch.us</a></p>
+        <table>
+          <thead>
+            <tr><th>Members</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(TBD)</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
