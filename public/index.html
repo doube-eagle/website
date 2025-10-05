@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Double Eagle Ranch</title>
+  <meta name="description" content="Rural community info for Double Eagle Ranch in Bastrop County, Texas: board, committees, and contact information." />
+  <meta property="og:title" content="Double Eagle Ranch — Community Information" />
+  <meta property="og:description" content="A simple, evergreen page for Double Eagle Ranch residents." />
+  <meta name="theme-color" content="#256f4a" />
+  <style>
+    :root {
+      --forest: #256f4a;
+      --moss: #e6ede6;
+      --bark: #3b3b28;
+      --cream: #f9fbf9;
+      --stone: #d9e2d9;
+      --text: #0f172a;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.6; background: var(--cream); color: var(--text); }
+    header { background: var(--forest); color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); position: sticky; top: 0; }
+
+    .portal-container { display: flex; justify-content: flex-end; align-items: center; padding: 1rem; }
+    .portal-btn { display:inline-block; background: transparent; border: 2px solid #fff; border-radius: 6px; padding: .5rem 1rem; color: #fff; text-decoration: none; font-weight: 700; }
+    .portal-btn:hover { background: rgba(255,255,255,0.12); }
+
+    main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    h1, h2 { color: var(--forest); }
+    section { margin-bottom: 3rem; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; border: 1px solid var(--stone); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    th, td { border: 1px solid var(--stone); padding: 0.75rem; text-align: left; }
+    th { background: var(--moss); color: var(--bark); font-weight: 700; }
+    tr:nth-child(even) { background: #fff; }
+    tr:nth-child(odd) { background: var(--cream); }
+
+    footer { display: flex; justify-content: flex-start; align-items: center; border-top: 1px solid var(--stone); padding: 1.5rem 1rem; color: #475569; font-size: 0.9rem; background: #f1f5f1; }
+
+    @media (prefers-color-scheme: dark) {
+      body { background: #0f1b17; color: #e5e7eb; }
+      header { background: #1b3b2e; }
+      th { background: #20392b; color: #e5e7eb; }
+      td { border-color: #2b3d33; }
+      footer { background: #16241f; border-color: #2b3d33; color: #9fb3a7; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="portal-container">
+      <a class="portal-btn" href="https://portal.example.com" target="_blank" rel="noopener">Management Company Portal</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h1>Double Eagle Ranch</h1>
+      <p>For documents and payment, please visit the <a href="https://portal.example.com" target="_blank" rel="noopener">Management Company Portal</a>.</p>
+    </section>
+
+    <section id="board">
+      <h2>Board of Directors</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Term Ends</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Heather Cook</td>
+            <td>President</td>
+            <td>2026</td>
+          </tr>
+          <tr>
+            <td>Chris Barner</td>
+            <td>Vice President & Secretary</td>
+            <td>2026</td>
+          </tr>
+          <tr>
+            <td>James Pryor</td>
+            <td>Treasurer</td>
+            <td>2025</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Have a question or comment for the Board? Please send us a note.</p>
+      <p>Email: <a href="mailto:board@doubleeagleranch.us">board@doubleeagleranch.us</a></p>
+    </section>
+
+    <section id="committees">
+      <h2>Committees</h2>
+      <h3>Architectural Review Committee (ARC)</h3>
+      <p>Reviews exterior changes for consistency with community standards.</p>
+      <p>Submit requests through the <a href="https://portal.example.com" target="_blank" rel="noopener">Resident Portal</a></p>
+      <p>Contact: <a href="mailto:arc@doubleeagleranch.us">arc@doubleeagleranch.us</a></p>
+
+      <h3>Social Committee</h3>
+      <p>Plans neighborhood gatherings and communications.</p>
+      <p>Contact: <a href="mailto:social@doubleeagleranch.us">social@doubleeagleranch.us</a></p>
+
+      <h3>Park & Landscape Committee</h3>
+      <p>Helps coordinate open space upkeep and landscaping projects.</p>
+      <p>Contact: <a href="mailto:parks@doubleeagleranch.us">parks@doubleeagleranch.us</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Double Eagle Ranch.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
