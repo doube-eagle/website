@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Double Eagle Ranch</title>
-  <meta name="description" content="Rural community info for Double Eagle Ranch in Bastrop County, Texas: board, committees, and contact information." />
+  <meta name="description"
+    content="Rural community info for Double Eagle Ranch in Bastrop County, Texas: board, committees, and contact information." />
   <meta property="og:title" content="Double Eagle Ranch — Community Information" />
   <meta property="og:description" content="A simple, evergreen page for Double Eagle Ranch residents." />
   <meta name="theme-color" content="#256f4a" />
@@ -18,43 +20,302 @@
       --text: #0f172a;
       --highlight: #cde5ce;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.6; background: var(--cream); color: var(--text); }
-    header { background: var(--forest); color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); position: sticky; top: 0; }
 
-    .portal-container { display: flex; justify-content: flex-end; align-items: center; padding: 1rem; }
-    .portal-btn { display:inline-block; background: transparent; border: 2px solid #fff; border-radius: 6px; padding: .5rem 1rem; color: #fff; text-decoration: none; font-weight: 700; }
-    .portal-btn:hover { background: rgba(255,255,255,0.12); }
+    * {
+      box-sizing: border-box;
+    }
 
-    main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
-    h1, h2 { color: var(--forest); }
-    section { margin-bottom: 3rem; }
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
 
-    table { width: 100%; border-collapse: collapse; margin-top: 1rem; border: 1px solid var(--stone); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    th, td { border: 1px solid var(--stone); padding: 0.75rem; text-align: left; }
-    th { background: var(--moss); color: var(--bark); font-weight: 700; }
-    tr:nth-child(even) { background: #fff; }
-    tr:nth-child(odd) { background: var(--cream); }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      background: var(--cream);
+      color: var(--text);
+      overflow: hidden;
+    }
 
-    .committee-block { background: var(--highlight); border: 1px solid var(--stone); border-radius: 8px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
-    .committee-block h3 { margin-top: 0; color: var(--forest); }
+    header {
+      background: var(--forest) url('./entrance.png') center 80%/cover no-repeat;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      height: 250px;
+      display: flex;
+      align-items: flex-end;
+      background-attachment: scroll;
+      flex-shrink: 0;
+    }
 
-    footer { display: flex; justify-content: flex-start; align-items: center; border-top: 1px solid var(--stone); padding: 1.5rem 1rem; color: #475569; font-size: 0.9rem; background: #f1f5f1; }
+    .portal-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    nav.menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav.menu a.active {
+      border-bottom-color: #fff;
+    }
+
+    .portal-btn {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 6px;
+      padding: .5rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .portal-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    main {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      padding: 2rem 10rem;
+    }
+
+    h1,
+    h2 {
+      color: var(--forest);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      border: 1px solid var(--stone);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    th,
+    td {
+      border: 1px solid var(--stone);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--moss);
+      color: var(--bark);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: #fff;
+    }
+
+    tr:nth-child(odd) {
+      background: var(--cream);
+    }
+
+    .committee-block {
+      background: var(--highlight);
+      border: 1px solid var(--stone);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .committee-block h3 {
+      margin-top: 0;
+      color: var(--forest);
+    }
+
+    footer {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-top: 1px solid var(--stone);
+      padding: 0rem 1rem;
+      color: #475569;
+      font-size: 0.9rem;
+      background: #f1f5f1;
+      flex-shrink: 0;
+    }
+
+    /* ===== Calendar iframe sizing: responsive and capped on wide screens ===== */
+    .calendar-embed {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid #777;
+    }
+
+    .calendar-embed iframe {
+      width: 100%;
+      height: min(75vh, 900px);
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .calendar-embed iframe {
+        height: 85vh;
+      }
+    }
+
+    /* ===== iCal link styling ===== */
+    .ical-card {
+      margin-top: 1rem;
+      background: #f8faf8;
+      border: 1px solid var(--stone);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+    }
+
+    .ical-row {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    .ical-label {
+      font-weight: 600;
+      color: var(--forest);
+      margin: 0;
+    }
+
+    .link-box {
+      flex: 1 1 420px;
+      background: #eef3ee;
+      border: 1px dashed var(--stone);
+      border-radius: 8px;
+      padding: .5rem .75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .9rem;
+      word-break: break-all;
+      overflow: auto;
+      max-height: 5.5rem;
+    }
+
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--forest);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: .55rem .9rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-copy:hover {
+      filter: brightness(.95);
+    }
+
+    .copy-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+    }
+
+    .copied {
+      color: var(--forest);
+      font-weight: 600;
+      margin-left: .5rem;
+      display: none;
+    }
+
+    @media (max-width: 1400px) {
+      main {
+        padding: 2rem 7rem;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      main {
+        padding: 2rem 4rem;
+      }
+    }
+
+    @media (max-width: 780px) {
+      main {
+        padding: 1.25rem 1rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: .75rem;
+        background: #fff;
+      }
+
+      td {
+        border: none;
+        border-bottom: 1px solid var(--stone);
+        padding: .5rem .75rem;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--bark);
+        display: block;
+        margin-bottom: .25rem;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header>
+  <header id="main-header">
     <div class="portal-container">
-      <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank"
-      rel="noopener">Management Company Portal</a>
+      <nav class="menu">
+        <a id="menu-main" href="#main">Main</a>
+        <a id="menu-calendar" href="#calendar">Calendar</a>
+      </nav>
+      <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">Resident Portal</a>
     </div>
   </header>
 
-  <main>
+  <main id="page-main">
     <section id="about">
       <h1>Double Eagle Ranch</h1>
-      <p>For documents and payment, please visit the <a href="https://portal.pamcotx.com/login"
-      target="_blank" rel="noopener">Management Company Portal</a>.</p>
+      <p>For documents and payment, please visit the <a href="https://portal.pamcotx.com/login" target="_blank"
+          rel="noopener">Resident Portal</a>.</p>
     </section>
 
     <section id="board">
@@ -85,8 +346,8 @@
           </tr>
         </tbody>
       </table>
-      <p>Have a question or comment for the Board? Please send us a note.</p>
-      <p>Email: <a href="mailto:board@doubleeagleranch.us">board@doubleeagleranch.us</a></p>
+      <p>Have a question or comment for the Board? Please send us an email at <a
+          href="mailto:board@doubleeagleranch.us">board@doubleeagleranch.us</a></p>
     </section>
 
     <section id="committees">
@@ -94,60 +355,140 @@
 
       <div class="committee-block">
         <h3>Architectural Review Committee (ARC)</h3>
-      <p>Preserve community character through <strong>design review</strong> that ensures quality
-      and <strong>collaboration</strong> that makes the approval process simple and fair for
-      everyone.</p>
-      <p>Submit requests through the <a href="https://portal.pamcotx.com/login" target="_blank"
-      rel="noopener">Management Company Portal</a></p>
-        <p>Contact: <a href="mailto:arc@doubleeagleranch.us">arc@doubleeagleranch.us</a></p>
+        <p>Preserve community character through <strong>design review</strong> that ensures quality
+          and <strong>collaboration</strong> that makes the approval process simple and fair for
+          everyone.</p>
+        <p>Submit requests through the <a href="https://portal.pamcotx.com/login" target="_blank"
+            rel="noopener">Resident Portal</a></p>
+        <p>Email: <a href="mailto:arc@doubleeagleranch.us">arc@doubleeagleranch.us</a></p>
         <table>
           <thead>
-            <tr><th>Members</th></tr>
+            <tr>
+              <th>Members</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>(TBD)</td></tr>
+            <tr>
+              <td>(TBD)</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <div class="committee-block">
         <h3>Social Committee</h3>
-      <p>Create community engagement through <strong>events</strong> that bring neighbors together
-      and <strong>communication</strong> that keeps residents informed and connected.</p>
-        <p>Contact: <a href="mailto:social@doubleeagleranch.us">social@doubleeagleranch.us</a></p>
+        <p>Create community engagement through <strong>events</strong> that bring neighbors together
+          and <strong>communication</strong> that keeps residents informed and connected.</p>
+        <p>Email: <a href="mailto:social@doubleeagleranch.us">social@doubleeagleranch.us</a></p>
         <table>
           <thead>
-            <tr><th>Members</th></tr>
+            <tr>
+              <th>Members</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>(TBD)</td></tr>
+            <tr>
+              <td>(TBD)</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <div class="committee-block">
         <h3>Park & Landscape Committee</h3>
-      <p>Enhance neighborhood life through <strong>landscaping</strong> that beautifies our shared
-      spaces and <strong>projects</strong> that bring neighbors together outdoors.</p>
-        <p>Contact: <a href="mailto:parks@doubleeagleranch.us">parks@doubleeagleranch.us</a></p>
+        <p>Enhance neighborhood life through <strong>landscaping</strong> that beautifies our shared
+          spaces and <strong>projects</strong> that bring neighbors together outdoors.</p>
+        <p>Email: <a href="mailto:parks@doubleeagleranch.us">parks@doubleeagleranch.us</a></p>
         <table>
           <thead>
-            <tr><th>Members</th></tr>
+            <tr>
+              <th>Members</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>(TBD)</td></tr>
+            <tr>
+              <td>(TBD)</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </section>
   </main>
 
-  <footer>
+  <main id="page-calendar" style="display:none">
+    <div class="calendar-embed">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?height=900&wkst=1&ctz=America%2FChicago&showTz=0&showTitle=0&showTabs=0&showCalendars=0&src=ZmJjMGQwMjBmYjMyY2NkMTViMmQ5NTJlMTA0YjNhYzkxOThkMjI2MWY5MzE3YzhiN2VjNWRlYmNjOGMzNDBiMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"
+        frameborder="0" scrolling="no">
+      </iframe>
+    </div>
+
+    <div class="ical-card" role="region" aria-label="Calendar link">
+      <div class="ical-row" style="margin-bottom:.5rem;">
+        <p class="ical-label">Add this calendar to your app:</p>
+        <button class="btn-copy" type="button" id="copy-ical">
+          <svg class="copy-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 3H5a2 2 0 0 0-2 2v11" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <rect x="7" y="7" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+          </svg>
+          Copy link
+        </button>
+        <span class="copied" id="copied-msg" aria-live="polite">Copied!</span>
+      </div>
+      <div class="link-box" id="calendar-link">
+        https://calendar.google.com/calendar/embed?src=fbc0d020fb32ccd15b2d952e104b3ac9198d2261f9317c8b7ec5debcc8c340b0%40group.calendar.google.com&ctz=America%2FChicago
+      </div>
+      <small style="display:block; margin-top:.5rem; color:#475569;">Paste into any calendar app that accepts
+        a web calendar link.</small>
+    </div>
+  </main>
+
+  <footer id="site-footer">
     <p>© <span id="year"></span> Double Eagle Ranch</p>
   </footer>
 
   <script>
+    // --- Page init ---
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function setRoute() {
+      const isCal = location.hash === '#calendar';
+      document.getElementById('page-main').style.display = isCal ? 'none' : 'block';
+      document.getElementById('page-calendar').style.display = isCal ? 'block' : 'none';
+      document.getElementById('menu-main').classList.toggle('active', !isCal);
+      document.getElementById('menu-calendar').classList.toggle('active', isCal);
+    }
+    window.addEventListener('hashchange', setRoute);
+    setRoute();
+
+    // --- Copy link interaction ---
+    (function () {
+      const copyBtn = document.getElementById('copy-ical');
+      const linkEl = document.getElementById('calendar-link');
+      const copiedEl = document.getElementById('copied-msg');
+      if (!copyBtn || !linkEl) return;
+      copyBtn.addEventListener('click', async () => {
+        const text = linkEl.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+        }
+        copiedEl.style.display = 'inline';
+        setTimeout(() => copiedEl.style.display = 'none', 1500);
+      });
+    })();
+
+    // --- Minimal smoke tests (console only) ---
+    (function runSmokeTests() {
+      const tests = [];
+      tests.push(['has menu links', !!document.getElementById('menu-main') && !!document.getElementById('menu-calendar')]);
+      tests.push(['has page containers', !!document.getElementById('page-main') && !!document.getElementById('page-calendar')]);
+      tests.push(['has copy UI', !!document.getElementById('copy-ical') && !!document.getElementById('calendar-link')]);
+      console.log('[DER site] smoke tests:', tests.map(([n, p]) => `${n}: ${p ? 'OK' : 'FAIL'}`).join(' | '));
+    })();
   </script>
 </body>
+
 </html>
