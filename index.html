@@ -52,13 +52,25 @@
       flex-shrink: 0;
     }
 
+    /* Header bar */
     .portal-container {
+      display: flex;
+      justify-content: center;           /* center the inner row */
+      align-items: center;
+      width: 100%;
+      padding: 1rem;                     /* keep your original vertical padding */
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    /* New inner row that matches <main>'s responsive padding */
+    .portal-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.75);
+      padding-left: 10rem;
+      padding-right: 10rem;
+      max-width: 100%;
     }
 
     nav.menu a {
@@ -245,9 +257,14 @@
       display: none;
     }
 
+    /* Match <main>'s responsive paddings */
     @media (max-width: 1400px) {
       main {
         padding: 2rem 7rem;
+      }
+      .portal-inner {
+        padding-left: 7rem;
+        padding-right: 7rem;
       }
     }
 
@@ -255,11 +272,19 @@
       main {
         padding: 2rem 4rem;
       }
+      .portal-inner {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
     }
 
     @media (max-width: 780px) {
       main {
         padding: 1.25rem 1rem;
+      }
+      .portal-inner {
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
 
@@ -303,11 +328,13 @@
 <body>
   <header id="main-header">
     <div class="portal-container">
-      <nav class="menu">
-        <a id="menu-main" href="#main">Main</a>
-        <a id="menu-calendar" href="#calendar">Calendar</a>
-      </nav>
-      <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">Resident Portal</a>
+      <div class="portal-inner">
+        <nav class="menu">
+          <a id="menu-main" href="#main">Main</a>
+          <a id="menu-calendar" href="#calendar">Calendar</a>
+        </nav>
+        <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">Resident Portal</a>
+      </div>
     </div>
   </header>
 
@@ -330,19 +357,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>Heather Cook</td>
-            <td>President</td>
-            <td>2026</td>
+            <td>Chris Barner</td>
+            <td>TBD</td>
+            <td>TBD</td>
           </tr>
           <tr>
-            <td>Chris Barner</td>
-            <td>Vice President & Secretary</td>
-            <td>2026</td>
+            <td>Heather Cook</td>
+            <td>TBD</td>
+            <td>TBD</td>
           </tr>
           <tr>
             <td>James Pryor</td>
-            <td>Treasurer</td>
-            <td>2025</td>
+            <td>TBD</td>
+            <td>TBD</td>
           </tr>
         </tbody>
       </table>
@@ -369,7 +396,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>(TBD)</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
             </tr>
           </tbody>
         </table>
@@ -388,7 +427,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>(TBD)</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
             </tr>
           </tbody>
         </table>
@@ -407,7 +458,19 @@
           </thead>
           <tbody>
             <tr>
-              <td>(TBD)</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>TBD</td>
             </tr>
           </tbody>
         </table>

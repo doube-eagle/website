@@ -1,3 +1,8 @@
 # Double Eagle Ranch Website
 
-Intended to be a super simple solution for our website needs.
+A simple solution for our current neighborhood website.
+
+## Development
+
+- Web browser: open `index.html`
+- Docker: `docker run -d -p 8080:80 --rm -v $(pwd):/usr/share/nginx/html nginx`
