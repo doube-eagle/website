@@ -169,12 +169,13 @@
   <main id="page-calendar" style="display:none">
     <div class="calendar-embed">
       <div id="month-calendar"><iframe
-          src="https://calendar.google.com/calendar/embed?height=900&wkst=1&ctz=America%2FChicago&showTz=0&showTitle=0&showTabs=0&showCalendars=0&src=ZmJjMGQwMjBmYjMyY2NkMTViMmQ5NTJlMTA0YjNhYzkxOThkMjI2MWY5MzE3YzhiN2VjNWRlYmNjOGMzNDBiMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"
+          src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FChicago&showTz=0&showTitle=0&showTabs=0&showCalendars=0&src=ZmJjMGQwMjBmYjMyY2NkMTViMmQ5NTJlMTA0YjNhYzkxOThkMjI2MWY5MzE3YzhiN2VjNWRlYmNjOGMzNDBiMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"
           frameborder="0" scrolling="no">
-        </iframe></div>
+        </iframe>
+      </div>
       <div id="schedule-calendar">
         <iframe
-          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&mode=AGENDA&showTabs=0&showCalendars=0&showPrint=0&src=ZmJjMGQwMjBmYjMyY2NkMTViMmQ5NTJlMTA0YjNhYzkxOThkMjI2MWY5MzE3YzhiN2VjNWRlYmNjOGMzNDBiMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"
+          src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FChicago&mode=AGENDA&showTabs=0&showCalendars=0&showPrint=0&src=ZmJjMGQwMjBmYjMyY2NkMTViMmQ5NTJlMTA0YjNhYzkxOThkMjI2MWY5MzE3YzhiN2VjNWRlYmNjOGMzNDBiMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%239e69af"
           style="border:solid 1px #777" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
@@ -235,6 +236,14 @@
         setTimeout(() => copiedEl.style.display = 'none', 1500);
       });
     })();
+
+    // Make the header image clickable
+    document.getElementById("main-header").addEventListener("click", function (e) {
+      // Prevent clicks inside .portal-inner from triggering
+      if (!e.target.closest(".portal-inner")) {
+        window.location.href = "assets/banner.jpg";
+      }
+    });
   </script>
 </body>
 
