@@ -204,6 +204,18 @@
     </div>
   </main>
 
+  <main id="page-banner" style="display:none; text-align:center; padding:2rem;">
+    <p>Out lovely banner image came from one of our residents, <a href="https://www.tinaautenphotography.com/" target="_blank">Tina Auten</a>.</p>
+  <a href="https://www.tinaautenphotography.com" target="_blank" style="display:inline-block;">
+    <img
+      src="assets/banner.jpg"
+      alt="Banner Image"
+      style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"
+    >
+  </a>
+</main>
+
+
   <footer id="site-footer">
     <p>© <span id="year"></span> Double Eagle Ranch</p>
   </footer>
@@ -213,10 +225,18 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     function setRoute() {
-      const isCal = location.hash === '#calendar';
-      document.getElementById('page-main').style.display = isCal ? 'none' : 'block';
+      const hash = location.hash;
+      const isMain = !hash || hash === '#main';
+      const isCal = hash === '#calendar';
+      const isBanner = hash === '#banner';
+
+      // Show or hide pages
+      document.getElementById('page-main').style.display = isMain ? 'block' : 'none';
       document.getElementById('page-calendar').style.display = isCal ? 'block' : 'none';
-      document.getElementById('menu-main').classList.toggle('active', !isCal);
+      document.getElementById('page-banner').style.display = isBanner ? 'block' : 'none';
+
+      // Update menu active states
+      document.getElementById('menu-main').classList.toggle('active', isMain);
       document.getElementById('menu-calendar').classList.toggle('active', isCal);
     }
     window.addEventListener('hashchange', setRoute);
@@ -245,7 +265,7 @@
     document.getElementById("main-header").addEventListener("click", function (e) {
       // Prevent clicks inside .portal-inner from triggering
       if (!e.target.closest(".portal-inner")) {
-        window.location.href = "assets/banner.jpg";
+        location.hash = "#banner";
       }
     });
   </script>
