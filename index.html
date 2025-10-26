@@ -21,7 +21,8 @@
           <a id="menu-main" href="#main">Main</a>
           <a id="menu-calendar" href="#calendar">Calendar</a>
         </nav>
-        <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">PAMco Resident Portal</a>
+        <a class="portal-btn" href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">PAMco Resident
+          Portal</a>
       </div>
     </div>
   </header>
@@ -47,24 +48,7 @@
             <th>Term Ends</th>
           </tr>
         </thead>
-        <tr>
-          <td>Heather Cook</td>
-          <td>President</td>
-          <td>December 2026</td>
-        </tr>
-        <tbody>
-          <tr>
-            <td>Chris Barner</td>
-            <td>Vice President / Secretary</td>
-            <td>December 2026</td>
-          </tr>
-
-          <tr>
-            <td>James Pryor</td>
-            <td>Treasurer</td>
-            <td>December 2025</td>
-          </tr>
-        </tbody>
+        <tbody id="board-rows"></tbody>
       </table>
       <p>Have a question or comment for the Board? Please send us an email at <a
           href="mailto:board@double-eagle.us">board@double-eagle.us</a>.</p>
@@ -78,32 +62,16 @@
         <p>Preserve community character through <strong>design review</strong> that ensures quality
           and <strong>collaboration</strong> that makes the approval process simple and fair for
           everyone.</p>
-        <p>Submit requests through <a href="https://portal.pamcotx.com/login" target="_blank"
-            rel="noopener">PAMco's Resident Portal</a></p>
+        <p>Submit requests through <a href="https://portal.pamcotx.com/login" target="_blank" rel="noopener">PAMco's
+            Resident Portal</a></p>
         <p>Email: <a href="mailto:arc@double-eagle.us">arc@double-eagle.us</a></p>
-        <table>
+        <table class="no-mobile-stack">
           <thead>
             <tr>
               <th>Members</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Ben Auten (chair)</td>
-            </tr>
-            <tr>
-              <td>Rich Bowen</td>
-            </tr>
-            <tr>
-              <td>Carol Hare</td>
-            </tr>
-            <tr>
-              <td>Ryan Moody</td>
-            </tr>
-            <tr>
-              <td>Joel Wilson</td>
-            </tr>
-          </tbody>
+          <tbody id="committee-arc"></tbody>
         </table>
       </div>
 
@@ -112,29 +80,13 @@
         <p>Create community engagement through <strong>events</strong> that bring neighbors together
           and <strong>communication</strong> that keeps residents informed and connected.</p>
         <p>Email: <a href="mailto:social@double-eagle.us">social@double-eagle.us</a></p>
-        <table>
+        <table class="no-mobile-stack">
           <thead>
             <tr>
               <th>Members</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Meghan Rinehart (chair)</td>
-            </tr>
-            <tr>
-              <td>Tina Auten</td>
-            </tr>
-            <tr>
-              <td>Cindy Benefield</td>
-            </tr>
-            <tr>
-              <td>Sharon Gifford</td>
-            </tr>
-            <tr>
-              <td>Lesley Guthrie</td>
-            </tr>
-          </tbody>
+          <tbody id="committee-social"></tbody>
         </table>
       </div>
 
@@ -143,28 +95,14 @@
         <p>Enhance neighborhood life through <strong>landscaping</strong> that beautifies our shared
           spaces and <strong>projects</strong> that bring neighbors together outdoors.</p>
         <p>Email: <a href="mailto:parks@double-eagle.us">parks@double-eagle.us</a></p>
-        <table>
+        <table class="no-mobile-stack">
           <thead>
             <tr>
               <th>Members</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Jennifer Calderon (chair)</td>
-            </tr>
-            <tr>
-              <td>Dale Albracht</td>
-            </tr>
-            <tr>
-              <td>Ross Hyde</td>
-            </tr>
-            <tr>
-              <td>Andrew & Traci McWaters</td>
-            </tr>
-            <tr>
-              <td>Ron Walton</td>
-            </tr>
+          <tbody id="committee-parks"></tbody>
           </tbody>
         </table>
       </div>
@@ -241,6 +179,57 @@
     window.addEventListener('hashchange', setRoute);
     setRoute();
 
+    (async function () {
+      try {
+        const res = await fetch('site-data.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to load site-data.json');
+        const data = await res.json();
+
+        // Populate Board
+        const boardBody = document.getElementById('board-rows');
+        if (boardBody && Array.isArray(data.board)) {
+          boardBody.innerHTML = '';
+          for (const m of data.board) {
+            const tr = document.createElement('tr');
+
+            const tdName = document.createElement('td');
+            tdName.textContent = m.name || '';
+            tr.appendChild(tdName);
+
+            const tdPos = document.createElement('td');
+            tdPos.textContent = m.position || '';
+            tr.appendChild(tdPos);
+
+            const tdTerm = document.createElement('td');
+            tdTerm.textContent = m.termEnds || '';
+            tr.appendChild(tdTerm);
+
+            boardBody.appendChild(tr);
+          }
+        }
+
+        // Populate Committees (by slug → tbody id="committee-${slug}")
+        if (Array.isArray(data.committees)) {
+          for (const c of data.committees) {
+            const tbody = document.getElementById(`committee-${c.slug}`);
+            if (!tbody) continue;
+            tbody.innerHTML = '';
+            (c.members || []).forEach(member => {
+              const tr = document.createElement('tr');
+              const td = document.createElement('td');
+              td.textContent = member;
+              tr.appendChild(td);
+              tbody.appendChild(tr);
+            });
+          }
+        }
+      } catch (err) {
+        console.error('[Data load error]', err);
+        // Optional: show a small inline message if data fails to load
+        document.querySelectorAll('tbody').forEach(tb => tb.innerHTML = '<tr><td>Data unavailable</td></tr>');
+      }
+    })();
+
     // Copy link interaction
     (function () {
       const copyBtn = document.getElementById('copy-ical');
@@ -267,6 +256,34 @@
         location.hash = "#banner";
       }
     });
+
+    // Stamp table cells with data-label attributes for mobile styling
+    function stampTableLabels(root = document) {
+      root.querySelectorAll('table:not([data-mobile-labels="off"])').forEach(table => {
+
+        // Skip opt-out tables
+        if (table.matches('.no-mobile-stack,[data-mobile-labels="off"]')) return;
+
+        const heads = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+        if (!heads.length) return;
+
+        table.querySelectorAll('tbody tr').forEach(tr => {
+          const cells = tr.querySelectorAll('td');
+          cells.forEach((td, i) => {
+            if (!td.hasAttribute('data-label') && heads[i]) {
+              td.setAttribute('data-label', heads[i]);
+            }
+          });
+        });
+      });
+    }
+
+    // Run once on load
+    document.addEventListener('DOMContentLoaded', () => stampTableLabels());
+
+    // Also catch rows added later (e.g., when you populate from JSON)
+    const mo = new MutationObserver(() => stampTableLabels());
+    mo.observe(document.body, { childList: true, subtree: true });
   </script>
 </body>
 

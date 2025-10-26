@@ -40,7 +40,8 @@ header {
     background-attachment: scroll;
     flex-shrink: 0;
     position: sticky;
-    top: -180px; /* Equal to the height difference between header and portal-container */
+    top: -180px;
+    /* Equal to the height difference between header and portal-container */
 
 }
 
@@ -306,35 +307,80 @@ footer {
 
 @media (max-width: 520px) {
 
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
+    /* Stack only tables that do NOT opt out */
+    table:not(.no-mobile-stack),
+    table:not(.no-mobile-stack) thead,
+    table:not(.no-mobile-stack) tbody,
+    table:not(.no-mobile-stack) th,
+    table:not(.no-mobile-stack) td,
+    table:not(.no-mobile-stack) tr {
         display: block;
     }
 
-    thead {
-        display: none;
+    /* Hide headers accessibly only for stacked tables */
+    table:not(.no-mobile-stack) thead {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
     }
 
-    tr {
+    table:not(.no-mobile-stack) tr {
         margin-bottom: .75rem;
         background: #fff;
     }
 
-    td {
+    table:not(.no-mobile-stack) td {
         border: none;
         border-bottom: 1px solid var(--stone);
         padding: .5rem .75rem;
     }
 
-    td::before {
+    table:not(.no-mobile-stack) td::before {
         content: attr(data-label);
         font-weight: 700;
         color: var(--bark);
         display: block;
         margin-bottom: .25rem;
+    }
+
+    /* Make sure opt-out tables show normally and have no label chips */
+    table.no-mobile-stack {
+        display: table !important;
+    }
+
+    table.no-mobile-stack thead {
+        display: table-header-group !important;
+        position: static !important;
+        width: auto;
+        height: auto;
+        clip: auto;
+        clip-path: none;
+        white-space: normal;
+    }
+
+    table.no-mobile-stack tbody {
+        display: table-row-group !important;
+    }
+
+    table.no-mobile-stack tr {
+        display: table-row !important;
+        margin: 0 !important;
+    }
+
+    table.no-mobile-stack th,
+    table.no-mobile-stack td {
+        display: table-cell !important;
+        padding: .75rem !important;
+    }
+
+    table.no-mobile-stack td::before {
+        content: none !important;
     }
 }

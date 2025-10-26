@@ -1,0 +1,39 @@
+{
+  "board": [
+    { "name": "Heather Cook", "position": "President", "termEnds": "December 2026" },
+    { "name": "Chris Barner", "position": "Vice President / Secretary", "termEnds": "December 2026" },
+    { "name": "James Pryor", "position": "Treasurer", "termEnds": "December 2025" }
+  ],
+  "committees": [
+    {
+      "slug": "arc",
+      "members": [
+        "Ben Auten (chair)",
+        "Rich Bowen",
+        "Carol Hare",
+        "Ryan Moody",
+        "Joel Wilson"
+      ]
+    },
+    {
+      "slug": "social",
+      "members": [
+        "Meghan Rinehart (chair)",
+        "Tina Auten",
+        "Cindy Benefield",
+        "Sharon Gifford",
+        "Lesley Guthrie"
+      ]
+    },
+    {
+      "slug": "parks",
+      "members": [
+        "Jennifer Calderon (chair)",
+        "Dale Albracht",
+        "Ross Hyde",
+        "Andrew & Traci McWaters",
+        "Ron Walton"
+      ]
+    }
+  ]
+}
