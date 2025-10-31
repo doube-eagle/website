@@ -384,3 +384,83 @@ footer {
         content: none !important;
     }
 }
+
+/* Contests two-column layout */
+.contests-layout {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+}
+
+/* Left menu */
+.contests-menu {
+    min-width: 200px;
+    /* menu column width on wide screens */
+    max-width: 260px;
+    flex: 0 0 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #ffffff;
+    /* adjust to suit your theme */
+    border: 1px solid #e6e9ee;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+/* Menu buttons */
+.contests-menu .menu-item {
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.98rem;
+    color: inherit;
+}
+
+.contests-menu .menu-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.contests-menu .menu-item.active {
+    background: #256f4a;
+    /* your brand color */
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Right content */
+.contests-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e6e9ee;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+/* Small screen: stack menu above content */
+@media (max-width: 760px) {
+    .contests-layout {
+        flex-direction: column;
+    }
+
+    .contests-menu {
+        flex: none;
+        width: 100%;
+        max-width: none;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .contests-menu .menu-item {
+        white-space: nowrap;
+        flex: 0 0 auto;
+    }
+}
